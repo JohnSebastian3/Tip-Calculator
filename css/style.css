@@ -1,0 +1,352 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+body {
+  font-family: 'Chakra Petch', serif;
+  /* height: 100vh; */
+  min-height: 100%;
+  background: linear-gradient(#b0e0e6, #e7feff);
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+}
+h1 {
+  margin: 6rem;
+  font-size: 3rem;
+  letter-spacing: 1rem;
+  color: #167d7f;
+}
+
+label[for="billAmount"], label[for="peopleAmount"] {
+  display: block;
+}
+input[type="radio"] {
+  display: none;
+}
+.container {
+  background-color: #fefefe;
+  border-radius: 2rem;
+  width: 70%;
+  height: auto;
+  box-shadow: 0px 20px 15px -3px rgba(25, 112, 82, 0.3);
+}
+
+.button {
+  text-align: center;
+  cursor: pointer;
+  color:#ddffe7;
+  background-color: #167d7f;
+  padding: 2rem 0;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 2.5rem;
+}
+
+.button:hover {
+  background-color: #05cf9d;
+  color:#02393a;
+}
+.buttonActive {
+  background-color: #05cf9d;
+  color:#02393a;
+}
+
+/* --------------- Input Styles ----------------------- */
+/* ---------------------------------------------------- */
+.billContainer, .peopleContainer, .tipContainer h2 {
+  color: #777;
+  font-weight: 500;
+  font-size: 2rem;
+}
+#billAmount {
+  text-align: right;
+  padding: 1rem;
+  width: 100%;
+  background-color: rgb(238, 238, 238);
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 5px;
+  cursor: pointer;
+  color: #167d7f;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+#billAmount::placeholder {
+  color: #167d7f;
+  font-weight: 700;
+}
+
+#billAmount:focus {
+  outline: none !important;
+  border: 2px solid #05cf9d;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+#peopleAmount {
+  display: block;
+  text-align: right;
+  padding: 1rem;
+  width: 100%;
+  background-color: rgb(238, 238, 238);
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 5px;
+  cursor: pointer;
+  color:#167d7f;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+#peopleAmount::placeholder {
+  color: #167d7f;
+  font-weight: 700;
+}
+#peopleAmount:focus {
+  outline: none !important;
+  border: 2px solid #05cf9d;
+  font-weight: 700;
+}
+
+.dollar {
+  position: relative;
+  margin-top: 1rem;
+  color:#167d7f;
+}
+.dollar span {
+  position: absolute;
+  top: 12px;
+  left: 1rem;
+}
+.percentSymbol span {
+  position: absolute;
+  top: 22px;
+  left: 1rem;
+}
+.percentSymbol {
+  position: relative;
+  color:#167d7f;
+  font-weight: 500;
+}
+#customInput {
+  /* grid-column: 3/ 4; */
+  /* grid-row: 2/3; */
+  text-align: right;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(238, 238, 238);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 2.5rem;
+  border: 2px solid rgb(238, 238, 238);
+  font-weight: 700;
+  color:#167d7f;
+}
+#customInput:focus{
+  outline: none !important;
+  border: 2px solid #05cf9d;
+  color:#167d7f;
+  font-weight: 700;
+}
+
+#peopleAmount {
+  margin-top: 1rem;
+}
+
+
+
+/* --------------- Percentage Grid Styles ----------------------- */
+/* ---------------------------------------------------- */
+.radioGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+
+
+
+/* --------------- Settings Styles ----------------------- */
+/* ---------------------------------------------------- */
+.settingsResultsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2rem;
+  
+}
+
+
+.settings {
+  flex-basis: 47%;  
+  /* display: flex;
+  flex-direction: column; */
+  align-self: stretch;
+}
+.settingsTextContainer {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+#submit {
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 1rem;
+  border: none;
+}
+#submit:hover {
+  color:#02393a;
+  
+}
+
+
+/* --------------- Results Styles ----------------------- */
+/* ---------------------------------------------------- */
+
+.results {
+  flex-basis: 47%;
+  background: #167d7f;
+  border-radius: 2rem;
+  color: #ddffe7;
+  align-self: stretch;
+  margin: 2rem;
+}
+.resultsTextContainer {
+  padding: 4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.resultsTextContainer h2 {
+  font-weight: 500;
+  font-size: 3rem;
+}
+.resultsTextContainer h2 span {
+  font-weight: 200;
+  font-size: 2rem;
+  color: rgb(220, 220, 220, 0.8);
+}
+.calculated {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bigGreen {
+  font-size: 5rem;
+  color:#04f0b5;
+  font-weight: 500;
+}
+#reset {
+  border: none;
+  border-radius: 1rem;
+  background-color:#05cf9d;
+}
+#reset:hover {
+  background-color: #b4f8c8;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+.hidden {
+  visibility: hidden;
+}
+.removed {
+  display: none;
+}
+
+.emptyError {
+  border: 1px solid red;
+}
+.error {
+  color: red;
+}
+
+/* ------------------ MEDIA QUERIES --------------------- */
+/* ------------------------------------------------------ */
+
+@media all and (max-width: 420px) {
+  h1 {
+    font-size: 2.5rem;
+    margin: 3.5rem;
+  }
+  .container {
+    width: 96%;
+    margin-bottom: 10rem;
+    padding: 1.5rem;
+  }
+  .settingsResultsContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem; */
+    
+  }
+  .radioGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+  .results {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .resultsTextContainer {
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+  .resultsTextContainer span{
+    font-size: 3rem;
+  }
+  .resultsTextContainer h2 {
+    font-size: 2rem;
+   
+  }
+  .resultsTextContainer h2 span {
+    font-weight: 200;
+    font-size: 1.5rem;
+    color: rgb(220, 220, 220, 0.8);
+  }
+  .settingsResultsContainer {
+    padding: 0.5rem;
+  }
+  #reset {
+    padding: 1rem;
+  }
+  #submit {
+    margin-bottom: 5rem;
+  }
+  #submit:hover {
+    color:#ddffe7;
+    background-color: #167d7f;
+  }
+  #reset:hover {
+    background-color: #05cf9d;
+    color:#ddffe7;
+  }
+
+  #submit:active, #reset:active {
+    transform: scale(0.97);
+    
+  }
+  
+}
