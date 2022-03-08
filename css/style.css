@@ -14,7 +14,7 @@
 /*******************************************/
 html {
   font-size: 62.5%;
-  height: 100%;
+  min-height: 100%;
 }
 body {
   font-family: 'Chakra Petch', serif;
@@ -244,6 +244,7 @@ input[type="radio"] {
   font-weight: 200;
   font-size: 2rem;
   color: rgb(220, 220, 220, 0.8);
+  flex-shrink: 1;
 }
 .calculated {
   display: flex;
@@ -255,6 +256,7 @@ input[type="radio"] {
   color:#04f0b5;
   font-weight: 500;
 }
+
 #reset {
   border: none;
   border-radius: 1rem;
@@ -284,7 +286,7 @@ input[type="radio"] {
 /* ------------------ MEDIA QUERIES --------------------- */
 /* ------------------------------------------------------ */
 
-@media all and (max-width: 420px) {
+@media all and (max-width: 1250px) {
   h1 {
     font-size: 2.5rem;
     margin: 3.5rem;
