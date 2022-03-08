@@ -32,6 +32,10 @@ const people = document.querySelector('#peopleAmount');
 
 const billError = document.querySelector('#billError');
 const peopleError = document.querySelector('#peopleError');
+
+const billnanError = document.querySelector('#billnanError');
+const peoplenanError = document.querySelector('#peoplenanError');
+
 const percentError = document.querySelector('#percentError');
 
 function displayResults() {
@@ -40,7 +44,7 @@ function displayResults() {
   percentage = getPercentage();
   const numPeople = Number(people.value);
   
-  if(confirmResults(billAmount, percentage, numPeople)) {
+  if(confirmResults(billAmount, numPeople)) {
     clearErrors();
     const tip = billAmount * (percentage / 100);
     const totalWithTip = billAmount + tip;
@@ -105,9 +109,34 @@ function hideCustom() {
   document.querySelector('#buttonCustom').classList.remove('removed');
 }
 
-function confirmResults(billInput, percentInput, peopleInput) {
+function confirmResults(billInput, peopleInput) {
   let billEmpty = billInput === 0 ? true : false;
   let peopleEmpty = peopleInput === 0 ? true : false;
+  console.log(billEmpty);
+  console.log(peopleEmpty);
+  
+
+  let billnan = isNaN(billInput) 
+  let peoplenan = isNaN(peopleInput);
+
+  console.log(billnan);
+  console.log(peoplenan);
+
+
+  if(billEmpty && peoplenan) {
+    billError.classList.remove('hidden');
+    peoplenanError.classList.remove('hidden');
+    bill.classList.add('emptyError');
+    people.classList.add('emptyError');
+    return false;
+  } else if (billnan && peopleError) {
+    billnanError.classList.remove('hidden');
+    peopleError.classList.remove('hidden');
+    bill.classList.add('emptyError');
+    people.classList.add('emptyError');
+    return false;
+  }
+
   
   if(billEmpty && peopleEmpty) {
     billError.classList.remove('hidden');
@@ -124,13 +153,31 @@ function confirmResults(billInput, percentInput, peopleInput) {
     people.classList.add('emptyError');
     return false;
   }
+
+  if(billnan && peoplenan) {
+    billnanError.classList.remove('hidden');
+    peoplenanError.classList.remove('hidden');
+    bill.classList.add('emptyError');
+    people.classList.add('emptyError');
+    return false;
+  } else if(billnan) {
+    billnanError.classList.remove('hidden');
+    bill.classList.add('emptyError');
+    return false;
+  } else if(peoplenan) {
+    peoplenanError.classList.remove('hidden');
+    people.classList.add('emptyError');
+    return false;
+  }
   return true;
 }
 
 function clearErrors() {
   billError.classList.add('hidden');
+  billnanError.classList.add('hidden');
   bill.classList.remove('emptyError')
   peopleError.classList.add('hidden');
+  peoplenanError.classList.add('hidden');
   people.classList.remove('emptyError');
 }
 
