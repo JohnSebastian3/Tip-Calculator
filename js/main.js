@@ -42,8 +42,9 @@ function displayResults() {
 
   const billAmount = Number(bill.value);
   percentage = getPercentage();
-  const numPeople = Number(people.value);
-  
+  const numPeople = Math.floor(Number(people.value));
+  people.value = numPeople;
+
   if(billAmount > 0 && numPeople > 0) {
     if(confirmResults(billAmount, numPeople)) {
       clearErrors();
