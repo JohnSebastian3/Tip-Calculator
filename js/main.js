@@ -44,20 +44,26 @@ function displayResults() {
   percentage = getPercentage();
   const numPeople = Number(people.value);
   
-  if(confirmResults(billAmount, numPeople)) {
-    clearErrors();
-    const tip = billAmount * (percentage / 100);
-    const totalWithTip = billAmount + tip;
-    document.querySelector('#totalResult').innerText = ('$' + totalWithTip.toFixed(2));
+  if(billAmount > 0 && numPeople > 0) {
+    if(confirmResults(billAmount, numPeople)) {
+      clearErrors();
+      const tip = billAmount * (percentage / 100);
+      const totalWithTip = billAmount + tip;
+      document.querySelector('#totalResult').innerText = ('$' + totalWithTip.toFixed(2));
+      
+      document.querySelector('#tipResult').innerText = ('$' + tip.toFixed(2));
+  
+      document.querySelector('#tipPerPerson').innerText = ('$' + (tip/numPeople).toFixed(2));
+      
+      document.querySelector('#totalPerPerson').innerText = ('$' + (totalWithTip/numPeople).toFixed(2));
     
-    document.querySelector('#tipResult').innerText = ('$' + tip.toFixed(2));
+    
+    }
 
-    document.querySelector('#tipPerPerson').innerText = ('$' + (tip/numPeople).toFixed(2));
-    
-    document.querySelector('#totalPerPerson').innerText = ('$' + (totalWithTip/numPeople).toFixed(2));
-  
-  
+  } else {
+    alert('Please enter a positive number first!');
   }
+  
 }
 
 
