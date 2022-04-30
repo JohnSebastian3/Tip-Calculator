@@ -1,28 +1,13 @@
-document.querySelector('#buttonFifteen').classList.add('buttonActive');
 
-document.querySelector('#submit').addEventListener('click', displayResults);
-document.querySelector('#custom').addEventListener('click', showCustom);
-document.querySelector('#reset').addEventListener('click', reset);
+const tipPercentageButtons = document.querySelectorAll('.tip-percent');
+const customButton = document.querySelector('#custom');
+const submitButton = document.querySelector('#submit');
+const resetButton = document.querySelector('#reset');
+const totalResult = document.querySelector('#totalResult');
+const tipResult = document.querySelector('#tipResult');
+const tipPerPerson = document.querySelector('#tipPerPerson');
+const totalPerPerson = document.querySelector('#totalPerPerson');
 
-document.querySelector('#five').addEventListener('click', hideCustom);
-document.querySelector('#ten').addEventListener('click', hideCustom);
-document.querySelector('#fifteen').addEventListener('click', hideCustom);
-document.querySelector('#twentyFive').addEventListener('click', hideCustom);
-document.querySelector('#fifty').addEventListener('click', hideCustom);
-
-document.querySelector('#buttonFive').addEventListener('click', activeEffect);
-document.querySelector('#buttonTen').addEventListener('click', activeEffect);
-document.querySelector('#buttonFifteen').addEventListener('click', activeEffect);
-document.querySelector('#buttonTwentyFive').addEventListener('click', activeEffect);
-document.querySelector('#buttonFifty').addEventListener('click', activeEffect);
-document.querySelector('#buttonCustom').addEventListener('click', activeEffect);
-
-
-
-document.querySelector('#five').addEventListener('click', uncheckDefault);
-document.querySelector('#ten').addEventListener('click', uncheckDefault);
-document.querySelector('#twentyFive').addEventListener('click', uncheckDefault);
-document.querySelector('#fifty').addEventListener('click', uncheckDefault);
 
 let checked = document.querySelector('input[name="percent"]:checked');
 const bill = document.querySelector('#billAmount');
@@ -37,6 +22,25 @@ const billnanError = document.querySelector('#billnanError');
 const peoplenanError = document.querySelector('#peoplenanError');
 
 const percentError = document.querySelector('#percentError');
+
+tipPercentageButtons.forEach(button => {
+  button.addEventListener('click', hideCustom);
+  button.addEventListener('click', activeEffect);
+  if(button.innerText !== '15%') {
+    button.addEventListener('click', uncheckDefault);
+  }
+})
+
+customButton.addEventListener('click', e => {
+  activeEffect(e);
+  uncheckDefault();
+  showCustom();
+});
+
+submitButton.addEventListener('click', displayResults);
+
+resetButton.addEventListener('click', reset);
+
 
 function displayResults() {
 
@@ -212,9 +216,9 @@ function reset() {
   defaultPercent.checked = true;
 }
 
-function activeEffect() {
+function activeEffect(e) {
   removeEffects();
-  this.classList.add('buttonActive');
+  e.target.classList.add('buttonActive');
 }
 
 function removeEffects() {
